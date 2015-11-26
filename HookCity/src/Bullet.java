@@ -1,7 +1,8 @@
+public class Bullet extends Object {
 
-public class Bullet {
-	
-  public Bullet(){
-	  
-  }
+	public Bullet(int x, int y, int height, int width) {
+		this.x = x;
+		this.y = y;
+
+	}
 }

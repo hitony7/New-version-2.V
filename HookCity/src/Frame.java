@@ -34,6 +34,5 @@ public class Frame extends JFrame {
 		new Frame();
 	}
 
-	public void add(KeyMove keyMove) {
-	}
+
 }

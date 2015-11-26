@@ -44,6 +44,9 @@ public class KeyMove implements KeyListener {
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
+	public void keyTyped(KeyEvent arg0) {
+		
 	}
+
+	
 }

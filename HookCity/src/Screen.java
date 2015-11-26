@@ -13,20 +13,17 @@ public class Screen extends JPanel implements Runnable {
 	public static boolean runGame = true;
 
 	public static Frame frame;
-	
 	public Thread thread = new Thread(this);
 	public static int myWidth, myHeight;
 	
 	public static boolean first = true;
 	
-	public static Image[] bod = new Image[10];
 	public static Image wall;
 	public static Image background;
 	public Player player ;
 
 
 	public Screen(Frame frame) {
-		frame.setBackground(Color.BLACK);
 		frame.addKeyListener(new KeyMove(this));
 		frame.setSize(new Dimension(frame.getWidth(), frame.getHeight()));
 		myWidth = this.getWidth();
@@ -49,15 +46,9 @@ public class Screen extends JPanel implements Runnable {
 
 		wall = new ImageIcon("C:\\Users\\398256004\\Brick_white_wall.jpg").getImage();
 
-		for (int i = 0; i < 10; i++) {
-			bod[i] = new ImageIcon("C:\\Users\\398256004\\turtle.png").getImage();
-
-		}
 	}
 	
-	public void currentRoom(){
-		
-	}
+
 
 	public void run() {
 		// Runs game loop
@@ -71,7 +62,7 @@ public class Screen extends JPanel implements Runnable {
 				
 				}
 			try {
-				Thread.sleep(1000/60);// 1000/60 = 60fps
+				thread.sleep(1000/60);// 1000/60 = 60fps
 			} catch (Exception e) {
 				
 			}
