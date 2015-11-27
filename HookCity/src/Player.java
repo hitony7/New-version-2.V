@@ -17,6 +17,9 @@ public class Player extends Object {
 	public boolean pDOWN;
 	public boolean pRIGHT;
 	public boolean pLEFT;
+	public boolean space;
+	public static Bullet bullet;
+	
 
 	public Player(String name) {
 		this.name = name;
@@ -53,7 +56,15 @@ public class Player extends Object {
 		if (pRIGHT) {
 			right();
 		}
+		if (space) {
+		 bullet = new Bullet(getX(), this.y, 10, 10);
+		 space = false;
+		}
 		
+	}
+	
+	public int getX(){
+		return x;
 	}
 
 
@@ -63,6 +74,7 @@ public class Player extends Object {
 	public void draw(Graphics g) {
 		g.drawImage(image, x, y, width,height, null);
 		g.drawString(name, x, y-10);
+		
 	}
 
 }

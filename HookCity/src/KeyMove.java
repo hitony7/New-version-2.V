@@ -23,6 +23,10 @@ public class KeyMove implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			screen.player.pLEFT = true;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			System.out.println("space");
+			screen.player.space = true;
+		}
 		
 	}
 
