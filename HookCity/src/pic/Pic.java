@@ -1,4 +1,4 @@
-package pic;
+package src.pic;
 
 public class Pic {
 

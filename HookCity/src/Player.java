@@ -1,3 +1,4 @@
+package src;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -5,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import pic.Pic;
+import src.pic.Pic;
 
 public class Player extends Object {
 

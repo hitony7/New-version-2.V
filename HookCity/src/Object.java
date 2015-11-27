@@ -1,3 +1,4 @@
+package src;
 import javax.swing.JLabel;
 public class Object extends JLabel{ 
 	int x;
