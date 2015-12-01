@@ -42,11 +42,6 @@ public class Screen extends JPanel implements Runnable {
 		
 		player = new Player("Jason Tran");
 		System.out.println(player);
-			
-		background = new ImageIcon("C:\\Users\\398256004\\brown.jpg").getImage();
-
-		wall = new ImageIcon("C:\\Users\\398256004\\Brick_white_wall.jpg").getImage();
-
 	}
 	
 
