@@ -55,7 +55,6 @@ public class Screen extends JPanel implements Runnable {
 				} else if (runGame) {
 					player.physic();
 					repaint();
-				
 				}
 			try {
 				thread.sleep(1000/60);// 1000/60 = 60fps

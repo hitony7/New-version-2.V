@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -23,8 +24,9 @@ public class Player extends Object {
 	public boolean pRIGHT;
 	public boolean pLEFT;
 	public boolean space;
-	public static Bullet bullet;
-	public face f = null;
+	//public static Bullet bullet;
+    ArrayList<Bullet> bullet = new ArrayList<Bullet>();
+	public face f = Player.face.LEFT;
 	
 
 	public Player(String name) {
@@ -58,12 +60,17 @@ public class Player extends Object {
 			f = Player.face.RIGHT;
 			right();
 		}
-		if (space && bullet == null) {
-		 bullet = new Bullet(this, getX(), getY(), 20, 20);
-		} 
-		if (bullet != null){
-			bullet.shoot();	
+	    if (space) {
+				 bullet.add(new Bullet(this, getX(), getY(), 20, 20));
+				 space =false;
+				} 
+		System.out.println(bullet.size());
+		for (int i = 0; i < bullet.size();i++){
+				if (bullet.get(i) != null){
+					bullet.get(i).shoot();	
+				}		
 		}
+	
 	}
 	
 	public int getX(){
@@ -77,7 +84,11 @@ public class Player extends Object {
 		g.drawString(name, x, y-10);
 		g.drawImage(image, x, y, width,height, null);
 		if (bullet != null){
-			bullet.draw(g);
+			for(int i = 0; i < bullet.size();i++){
+				System.out.println();
+				bullet.get(i).draw(g);
+			}
+		
 		}
 	}
 

@@ -8,9 +8,11 @@ public class Bullet extends Object {
 	public boolean inGame = false;
 	BufferedImage image;
 	int speed = 10;
+	final Player.face f;
 	
 	public Bullet(Player player, int x, int y, int height, int width) {
 		this.player = player;
+		f = this.player.f;
 		this.x = x;
 		this.y = y;
 		this.height = height;
@@ -20,19 +22,15 @@ public class Bullet extends Object {
 	}
 	
 	public void shoot(){
-		System.out.println(x);
-		
-		if (player.f == Player.face.LEFT)
+		System.out.println(x);	
+		if (f == Player.face.LEFT)
 			x -= speed;
-		else if (player.f == Player.face.RIGHT)
+		else if (f == Player.face.RIGHT)
 			x += speed;
-		 else if (player.f == Player.face.UP)
+		 else if (f == Player.face.UP)
 			 y -= speed;
-		 else if (player.f == Player.face.DOWN)
+		 else if (f == Player.face.DOWN)
 			 y += speed;
-		
-		if (x < 0 || x > 1280 || y < 0 || y > 720)
-			Player.bullet = null;
 	}
 	
 	public int getX(){
