@@ -1,20 +1,18 @@
-package src;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyMove implements KeyListener {
 
 	Screen screen;
-	
+
 	public KeyMove(Screen screen) {
 		this.screen = screen;
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			screen.player.pUP = true;	
+			screen.player.pUP = true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			screen.player.pDOWN = true;
@@ -26,16 +24,15 @@ public class KeyMove implements KeyListener {
 			screen.player.pLEFT = true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			System.out.println("space");
 			screen.player.space = true;
 		}
-		
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			screen.player.pUP = false;	
+			screen.player.pUP = false;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			screen.player.pDOWN = false;
@@ -51,8 +48,7 @@ public class KeyMove implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		
+
 	}
 
-	
 }

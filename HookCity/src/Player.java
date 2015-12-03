@@ -1,4 +1,3 @@
-package src;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,14 +6,12 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import src.pic.Pic;
-
 public class Player extends Object {
 
 	public enum face {
 		UP, DOWN, LEFT, RIGHT;
 	}
-	
+
 	int currentRoomId;
 	String name;
 	BufferedImage image;
@@ -24,10 +21,8 @@ public class Player extends Object {
 	public boolean pRIGHT;
 	public boolean pLEFT;
 	public boolean space;
-	//public static Bullet bullet;
-    ArrayList<Bullet> bullet = new ArrayList<Bullet>();
+	public ArrayList<Bullet> bullet;
 	public face f = Player.face.LEFT;
-	
 
 	public Player(String name) {
 		this.name = name;
@@ -35,13 +30,10 @@ public class Player extends Object {
 		y = 300;
 		height = 100;
 		width = 100;
-		speed = 10;
+		speed = 8;
 		image = imageLoad("turtle.png");
+		bullet = new ArrayList<Bullet>();
 	}
-
-
-
-
 
 	public void physic() {
 		if (pUP) {
@@ -60,35 +52,47 @@ public class Player extends Object {
 			f = Player.face.RIGHT;
 			right();
 		}
-	    if (space) {
-				 bullet.add(new Bullet(this, getX(), getY(), 20, 20));
-				 space =false;
-				} 
-		System.out.println(bullet.size());
-		for (int i = 0; i < bullet.size();i++){
-				if (bullet.get(i) != null){
-					bullet.get(i).shoot();	
-				}		
+		if (space) {
+			fire();
 		}
-	
+
 	}
-	
-	public int getX(){
+
+	public void bulletMove() {
+		for (int i = 0; i < bullet.size(); i++) {
+			if (bullet.get(i) != null) {
+				bullet.get(i).shoot();
+			}
+		}
+
+	}
+
+	private void fire() {
+		// Creates New Bullets
+		bullet.add(new Bullet(this, getX(), getY(), 20, 20));
+		space = false;
+	}
+
+	public ArrayList<Bullet> getbullet() {
+		return bullet;
+	}
+
+	public int getX() {
 		return x;
 	}
-	public int getY(){
+
+	public int getY() {
 		return y;
 	}
-	
+
 	public void draw(Graphics g) {
-		g.drawString(name, x, y-10);
-		g.drawImage(image, x, y, width,height, null);
-		if (bullet != null){
-			for(int i = 0; i < bullet.size();i++){
-				System.out.println();
+		g.drawString(name, x, y - 10);
+		g.drawImage(image, x, y, width, height, null);
+		if (bullet != null) {
+			for (int i = 0; i < bullet.size(); i++) {
 				bullet.get(i).draw(g);
 			}
-		
+
 		}
 	}
 
